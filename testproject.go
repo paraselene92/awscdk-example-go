@@ -23,6 +23,8 @@ func NewTestprojectStack(scope constructs.Construct, id string, props *Testproje
 	// as an example, here's how you would define an AWS SNS topic:
 	awssns.NewTopic(stack, jsii.String("MyTopic"), &awssns.TopicProps{
 		DisplayName: jsii.String("MyCoolTopic"),
+                Fifo: jsii.Bool(true),
+                TopicName: jsii.String("MySecondTopic"),
 	})
 
 	return stack
