@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/aws/aws-cdk-go/awscdk"
 	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 	"github.com/aws/constructs-go/constructs/v3"
 	"github.com/aws/jsii-runtime-go"
 )
@@ -19,6 +20,9 @@ func NewTestprojectStack(scope constructs.Construct, id string, props *Testproje
 	stack := awscdk.NewStack(scope, &id, &sprops)
 
 	// The code that defines your stack goes here
+        awss3.NewBucket(stack, jsii.String("testbucket20210519"), &awss3.BucketProps{
+                BucketName: jsii.String("testbucket20210519"),
+        })
 
 	// as an example, here's how you would define an AWS SNS topic:
 	awssns.NewTopic(stack, jsii.String("MyTopic"), &awssns.TopicProps{
